@@ -1,0 +1,52 @@
+name: Gerar executável Windows
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install customtkinter pillow pyinstaller
+
+      - name: Gerar executável
+        shell: pwsh
+        run: |
+          pyinstaller --onefile --windowed --name SimuladorFoguete `
+            --add-data "foguete_1.png;." `
+            --add-data "foguete_2.png;." `
+            --add-data "foguete_3.png;." `
+            --add-data "foguete_4.png;." `
+            --add-data "foguete_5.png;." `
+            --add-data "foguete_6.png;." `
+            --add-data "foguete_7.png;." `
+            --add-data "foguete_8.png;." `
+            --add-data "foguete_9.png;." `
+            --add-data "foguete_10.png;." `
+            --add-data "foguete_11.png;." `
+            --add-data "foguete_12.png;." `
+            --add-data "foguete_sem.png;." `
+            --add-data "efoguete_1.png;." `
+            --add-data "foguete_caindo.png;." `
+            --add-data "foguete_chao.png;." `
+            algoritmo.py
+
+      - name: Disponibilizar executável
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimuladorFoguete-Windows
+          path: dist/SimuladorFoguete.exe
