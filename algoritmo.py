@@ -50,7 +50,7 @@ class Aplicativo(ctk.CTk):
         self.img_XI = ctk.CTkImage(dark_image=Image.open("foguete_11.png"), size=(300,300))
         self.img_XII = ctk.CTkImage(dark_image=Image.open("foguete_12.png"), size=(300,300))
         self.imge = ctk.CTkImage(dark_image=Image.open("foguete_sem.png"), size=(300,300))
-        self.imge_I = ctk.CTkImage(dark_image=Image.open("Efoguete_1.png"), size=(300,300))
+        self.imge_I = ctk.CTkImage(dark_image=Image.open("efoguete_1.png"), size=(300,300))
         self.imge_II = ctk.CTkImage(dark_image=Image.open("foguete_caindo.png"), size=(300,300))
         self.imge_III = ctk.CTkImage(dark_image=Image.open("foguete_chao.png"), size=(300,300))
 
