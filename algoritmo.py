@@ -98,9 +98,9 @@ class Aplicativo(ctk.CTk):
         self.button_integridade.pack()
 
         # Módulos críticos
-        self.navegacao = "N/a"
-        self.comunicacao = "N/a"
-        self.motores = "N/a"
+        self.navegacao = "N/d"
+        self.comunicacao = "N/d"
+        self.motores = "N/d"
         self.subtitulo_modulos = ctk.CTkLabel(self.barra_lateral,
                                               text="MÓDULOS CRÍTICOS",
                                               font=ctk.CTkFont(weight="bold"))
@@ -388,6 +388,7 @@ class Aplicativo(ctk.CTk):
                 self.imagem_foguete.configure(image=self.imge_I)
                 atualizar_mostradores()
                 foguete_para()
+                return
 
             if self.altura >= 130:
                 self.status_do_foguete.configure(text="O foguete chegou no espaço!")
