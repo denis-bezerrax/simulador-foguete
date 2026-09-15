@@ -18,7 +18,7 @@ ctk.set_default_color_theme("blue")
 class Aplicativo(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.title("Simulador de decolagem de foguete")
+        self.title("Missão Aurora")
         self.geometry("600x600")
 
         # Divisão da tela
@@ -96,6 +96,18 @@ class Aplicativo(ctk.CTk):
         self.button_integridade = ctk.CTkButton(self.barra_lateral,
                                                        text="INDISPONÍVEL")
         self.button_integridade.pack()
+
+        # Módulos críticos
+        self.navegacao = "N/a"
+        self.comunicacao = "N/a"
+        self.motores = "N/a"
+        self.subtitulo_modulos = ctk.CTkLabel(self.barra_lateral,
+                                              text="MÓDULOS CRÍTICOS",
+                                              font=ctk.CTkFont(weight="bold"))
+        self.subtitulo_modulos.pack()
+        self.button_modulos = ctk.CTkButton(self.barra_lateral,
+                                            text=f"Navegação: {self.navegacao}\n Comunicação: {self.comunicacao}\n Motores: {self.motores}")
+        self.button_modulos.pack()
 
         # Combustível - barra lateral
         self.mostrador_combustivel_lateral = ctk.CTkLabel(self.barra_lateral,
@@ -176,7 +188,19 @@ class Aplicativo(ctk.CTk):
         def verificar_integridade():
             if self.integridade.get() == 1:
                 self.button_integridade.configure(text="ÍNTEGRO", fg_color="green", hover_color="green")
+                self.motores = "Ok"
+                self.comunicacao = "Ok"
+                self.navegacao = "Ok"
+                self.button_modulos.configure(text=f"Navegação: {self.navegacao}\n Comunicação: {self.comunicacao}\n Motores: {self.motores}",
+                                              fg_color="green",
+                                              hover_color="green")
             else:
+                self.motores = "Falha"
+                self.comunicacao = "Falha"
+                self.navegacao = "Falha"
+                self.button_modulos.configure(text=f"Navegação: {self.navegacao}\n Comunicação: {self.comunicacao}\n Motores: {self.motores}",
+                                              fg_color="red",
+                                              hover_color="red")
                 self.button_integridade.configure(text="DANIFICADO", fg_color="red", hover_color="red")
         self.aleatorio_integridade = 0
         self.integridadeon = ctk.CTkRadioButton(self.tela_frame,
@@ -336,14 +360,37 @@ class Aplicativo(ctk.CTk):
             else:
                 self.button_pressao_dos_tanques_lateral.configure(fg_color="green", hover_color="green")
 
-            # Verificação da integridade estrutural
-
-            if self.aleatorio_integridade >= 98:
+            # Verificação da integridade estrutural e dos módulos
+            if self.aleatorio_integridade >= 298:
+                self.navegacao = "Falha"
+                self.button_modulos.configure(fg_color="orange", hover_color="orange")
                 self.button_integridade.configure(text="DANIFICADO", fg_color="red", hover_color="red")
-                self.status_do_foguete.configure(text="Status: O foguete explodiu por danos estruturais!")
                 self.texto_descricao.configure(text="O foguete apresentou danos a sua estrutura")
+            elif self.aleatorio_integridade >= 295:
+                self.comunicacao = "Falha"
+                self.button_modulos.configure(fg_color="orange", hover_color="orange")
+                self.button_integridade.configure(text="DANIFICADO", fg_color="red", hover_color="red")
+                self.texto_descricao.configure(text="O foguete apresentou danos a sua estrutura")
+            elif self.aleatorio_integridade >= 292:
+                self.motores = "Falha"
+                self.button_modulos.configure(fg_color="orange", hover_color="orange")
+                self.button_integridade.configure(text="DANIFICADO", fg_color="red", hover_color="red")
+                self.texto_descricao.configure(text="O foguete apresentou danos a sua estrutura")
+
+            if self.navegacao == "Falha" and self.comunicacao == "Falha" and self.motores == "Falha":
+                self.button_modulos.configure(fg_color="darkred", hover_color="darkred")
+                self.status_do_foguete.configure(text="Status: O foguete explodiu!")
+                self.texto_descricao.configure(text="Todos os módulos do foguete pararam de funcionar.")
                 self.imagem_foguete.configure(image=self.imge_I)
+                atualizar_mostradores()
                 foguete_para()
+
+            if self.altura >= 130:
+                self.status_do_foguete.configure(text="O foguete chegou no espaço!")
+                self.texto_descricao.configure(text="Parabéns por ter conseguido chegar ao espaço.")
+                foguete_para()
+
+            
 
         def atualizar_mostradores():
             self.mostrador_altura_e_velocidade.configure(text=f"Altura: {self.altura:.2f} quilômetros | Velocidade {self.velocidade:.2f}Km/s")
@@ -353,6 +400,7 @@ class Aplicativo(ctk.CTk):
             self.button_temperatura_externa_lateral.configure(text=f"{self.t_externa:.1f}℃")
             self.button_pressao_dos_tanques_lateral.configure(text=f"{self.pressao_tanques:.1f} bar")
             self.label_tempo.configure(text=f"TEMPO\n{self.minutos:02d}:{self.segundos:02d}")
+            self.button_modulos.configure(text=f"Navegação: {self.navegacao}\n Comunicação: {self.comunicacao}\n Motores: {self.motores}")
 
         def atualizar_imagens_foguete():
             if self.altura <= 0.5 and self.altura <= 1.99:
@@ -383,14 +431,15 @@ class Aplicativo(ctk.CTk):
         
         # Simulação
         def simulacao():
-            self.altura += (self.velocidade)
+            self.altura += self.velocidade
             self.velocidade += 0.03
             self.combustivel -= 1129
             self.energia -= 0.5
             self.t_interna += (self.velocidade * 60) * 0.003
             self.t_externa += (self.velocidade * 60) * 0.1
             self.pressao_tanques += 0.3
-            self.aleatorio_integridade = random.randint(1,100)
+            self.aleatorio_integridade = random.randint(1,300)
+
             
 
             atualizar_mostradores()
@@ -426,6 +475,12 @@ class Aplicativo(ctk.CTk):
             self.altura = 0
             self.velocidade = 0
             self.tempo = 0
+            self.minutos = 0
+            self.segundos = 0
+            self.motores = "Ok"
+            self.comunicacao = "Ok"
+            self.navegacao = "Ok"
+            self.button_modulos.configure(fg_color="green", hover_color="green")
             informacoes_do_usuario()
             atualizar_mostradores()
 
