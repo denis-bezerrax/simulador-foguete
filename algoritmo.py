@@ -1,7 +1,16 @@
 import customtkinter as ctk
 from PIL import Image
 import random
-import time
+import os
+import sys
+
+def caminho_recurso(nome):
+    if getattr(sys, "frozen", False):
+        pasta = sys._MEIPASS
+    else:
+        pasta = os.path.dirname(os.path.abspath(__file__))
+
+    return os.path.join(pasta, nome)
 
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
@@ -37,22 +46,22 @@ class Aplicativo(ctk.CTk):
         self.tela_frame_lateral.pack()
 
         # Foto do foguete
-        self.img_I = ctk.CTkImage(dark_image=Image.open("foguete_1.png"), size=(300,300))
-        self.img_II = ctk.CTkImage(dark_image=Image.open("foguete_2.png"), size=(300,300))
-        self.img_III = ctk.CTkImage(dark_image=Image.open("foguete_3.png"), size=(300,300))
-        self.img_IV = ctk.CTkImage(dark_image=Image.open("foguete_4.png"), size=(300,300))
-        self.img_V = ctk.CTkImage(dark_image=Image.open("foguete_5.png"), size=(300,300))
-        self.img_VI = ctk.CTkImage(dark_image=Image.open("foguete_6.png"), size=(300,300))
-        self.img_VII = ctk.CTkImage(dark_image=Image.open("foguete_7.png"), size=(300,300))
-        self.img_VIII = ctk.CTkImage(dark_image=Image.open("foguete_8.png"), size=(300,300))
-        self.img_IX = ctk.CTkImage(dark_image=Image.open("foguete_9.png"), size=(300,300))
-        self.img_X = ctk.CTkImage(dark_image=Image.open("foguete_10.png"), size=(300,300))
-        self.img_XI = ctk.CTkImage(dark_image=Image.open("foguete_11.png"), size=(300,300))
-        self.img_XII = ctk.CTkImage(dark_image=Image.open("foguete_12.png"), size=(300,300))
-        self.imge = ctk.CTkImage(dark_image=Image.open("foguete_sem.png"), size=(300,300))
-        self.imge_I = ctk.CTkImage(dark_image=Image.open("efoguete_1.png"), size=(300,300))
-        self.imge_II = ctk.CTkImage(dark_image=Image.open("foguete_caindo.png"), size=(300,300))
-        self.imge_III = ctk.CTkImage(dark_image=Image.open("foguete_chao.png"), size=(300,300))
+        self.img_I = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_1.png")), size=(300,300))
+        self.img_II = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_2.png")), size=(300,300))
+        self.img_III = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_3.png")), size=(300,300))
+        self.img_IV = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_4.png")), size=(300,300))
+        self.img_V = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_5.png")), size=(300,300))
+        self.img_VI = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_6.png")), size=(300,300))
+        self.img_VII = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_7.png")), size=(300,300))
+        self.img_VIII = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_8.png")), size=(300,300))
+        self.img_IX = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_9.png")), size=(300,300))
+        self.img_X = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_10.png")), size=(300,300))
+        self.img_XI = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_11.png")), size=(300,300))
+        self.img_XII = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_12.png")), size=(300,300))
+        self.imge = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_sem.png")), size=(300,300))
+        self.imge_I = ctk.CTkImage(dark_image=Image.open(caminho_recurso("efoguete_1.png")), size=(300,300))
+        self.imge_II = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_caindo.png")), size=(300,300))
+        self.imge_III = ctk.CTkImage(dark_image=Image.open(caminho_recurso("foguete_chao.png")), size=(300,300))
 
         self.imagem_foguete = ctk.CTkLabel(self.tela_frame_lateral,
                                             image=self.img_I,
@@ -94,7 +103,7 @@ class Aplicativo(ctk.CTk):
                                                           font=ctk.CTkFont(weight="bold"))
         self.mostrador_combustivel_lateral.pack()
         self.button_combustivel_lateral = ctk.CTkButton(self.barra_lateral,
-                                                        text="0 litros")
+                                                        text="0 quilos")
         self.button_combustivel_lateral.pack()
 
         # Energia - barra lateral
@@ -143,19 +152,18 @@ class Aplicativo(ctk.CTk):
                                    )
         self.titulo_principal.grid(row=0, column=0, columnspan=2, pady=10)
         
-
-        def validar_numero(valor):
-            if valor == "":
-                return True
-
-            if valor == ".":
+        # Função que verifica se é um número a informação inserida pelo usuário
+        def validacao(valor):
+            if valor in ("", "-", "."):
                 return True
 
             if valor.count(".") > 1:
                 return False
 
+            if valor.startswith("-"):
+                valor = valor[1:]
+
             return valor.replace(".", "").isdigit()
-        validacao = self.register(validar_numero)
 
         # Integridade Estrutural
         
@@ -191,7 +199,7 @@ class Aplicativo(ctk.CTk):
 
         self.campo_combustivel_inicial = ctk.CTkEntry(self.tela_frame, 
                                                       validate="key",
-                                                      validatecommand=(validacao, "%P"))
+                                                      validatecommand=(self.register(validacao), "%P"))
         self.campo_combustivel_inicial.grid(row=5,column=0, columnspan=2)
 
         # Carga inicial
@@ -200,7 +208,7 @@ class Aplicativo(ctk.CTk):
         self.subtitulo_energia_inicial.grid(row=6,column=0, columnspan=2)
         self.campo_energia_inicial = ctk.CTkEntry(self.tela_frame, 
                                                       validate="key",
-                                                      validatecommand=(validacao, "%P"))
+                                                      validatecommand=(self.register(validacao), "%P"))
         self.campo_energia_inicial.grid(row=7, column=0, columnspan=2)
 
         # Temperatura Interna
@@ -209,7 +217,7 @@ class Aplicativo(ctk.CTk):
         self.subtitulo_temperatura_interna_inicial.grid(row=8,column=0, columnspan=2)
         self.campo_temperatura_interna_inicial = ctk.CTkEntry(self.tela_frame, 
                                                       validate="key",
-                                                      validatecommand=(validacao, "%P"))
+                                                      validatecommand=(self.register(validacao), "%P"))
         self.campo_temperatura_interna_inicial.grid(row=9,column=0, columnspan=2)
 
         # Temperatura Externa
@@ -218,7 +226,7 @@ class Aplicativo(ctk.CTk):
         self.subtitulo_temperatura_externa_inicial.grid(row=10,column=0, columnspan=2)
         self.campo_temperatura_externa_inicial = ctk.CTkEntry(self.tela_frame, 
                                                       validate="key",
-                                                      validatecommand=(validacao, "%P"))
+                                                      validatecommand=(self.register(validacao), "%P"))
         self.campo_temperatura_externa_inicial.grid(row=11,column=0, columnspan=2)
 
         # Pressão dos tanques
@@ -228,7 +236,7 @@ class Aplicativo(ctk.CTk):
         self.subtitulo_pressao_dos_tanques_inicial.grid(row=12,column=0, columnspan=2)
         self.campo_pressao_dos_tanques_inicial = ctk.CTkEntry(self.tela_frame, 
                                                       validate="key",
-                                                      validatecommand=(validacao, "%P"))
+                                                      validatecommand=(self.register(validacao), "%P"))
         self.campo_pressao_dos_tanques_inicial.grid(row=13,column=0, columnspan=2)
 
         def informacoes_do_usuario():
@@ -244,7 +252,7 @@ class Aplicativo(ctk.CTk):
                 self.status_do_foguete.configure(text="Status: O foguete cairá!")
                 self.texto_descricao.configure(text="O foguete está sem combustível, ele perderá velocidade e cairá")
                 self.button_combustivel_lateral.configure(fg_color="darkred", hover_color="darkred")
-                self.imagem_foguete.configure(self.imagem_foguete.configure(image=self.imge))
+                self.imagem_foguete.configure(image=self.imge)
                 if self.combustivel <= 0:
                       self.combustivel = 0
                       self.pressao_tanques = 0
@@ -283,7 +291,7 @@ class Aplicativo(ctk.CTk):
                 self.status_do_foguete.configure(text="Status: O foguete explodiu pela temperatura!")
                 self.texto_descricao.configure(text="A temperatura interna atingiu um ponto que danificou a carga e que comprometeu os sistemas.")
                 self.button_temperatura_interna_lateral.configure(fg_color="darkred", hover_color="darkred")
-                self.imagem_foguete.configure(self.imagem_foguete.configure(image=self.imge_I))
+                self.imagem_foguete.configure(image=self.imge_I)
                 foguete_para()
             elif self.t_interna >= 40:
                 self.status_do_foguete.configure(text="Status: O foguete está com problemas")
@@ -299,7 +307,7 @@ class Aplicativo(ctk.CTk):
                 self.status_do_foguete.configure(text="Status: O foguete explodiu pela temperatura!")
                 self.texto_descricao.configure(text="A temperatura externa atingiu um ponto que afetou o sistema como também todo o seu combustível e sua estrutura.")
                 self.button_temperatura_externa_lateral.configure(fg_color="darkred", hover_color="darkred")
-                self.imagem_foguete.configure(self.imagem_foguete.configure(image=self.imge_I))
+                self.imagem_foguete.configure(image=self.imge_I)
                 foguete_para()
             elif self.t_externa >= 1000:
                 self.status_do_foguete.configure(text="Status: O foguete está com problemas")
@@ -317,7 +325,7 @@ class Aplicativo(ctk.CTk):
                 self.status_do_foguete.configure(text="Status: O foguete explodiu pela pressão!")
                 self.texto_descricao.configure(text="A pressão dos tanques ficou muito alta.")
                 self.button_pressao_dos_tanques_lateral.configure(fg_color="darkred", hover_color="darkred")
-                self.imagem_foguete.configure(self.imagem_foguete.configure(image=self.imge_I))
+                self.imagem_foguete.configure(image=self.imge_I)
                 foguete_para()
             elif self.pressao_tanques >= 30:
                 self.status_do_foguete.configure(text="Status: O foguete está com problemas")
@@ -334,7 +342,7 @@ class Aplicativo(ctk.CTk):
                 self.button_integridade.configure(text="DANIFICADO", fg_color="red", hover_color="red")
                 self.status_do_foguete.configure(text="Status: O foguete explodiu por danos estruturais!")
                 self.texto_descricao.configure(text="O foguete apresentou danos a sua estrutura")
-                self.imagem_foguete.configure(self.imagem_foguete.configure(image=self.imge_I))
+                self.imagem_foguete.configure(image=self.imge_I)
                 foguete_para()
 
         def atualizar_mostradores():
@@ -430,6 +438,9 @@ class Aplicativo(ctk.CTk):
             if self.cronometro_id is not None:
                 self.after_cancel(self.cronometro_id)
                 self.cronometro_id = None
+            if self.queda_id is not None:
+                self.after_cancel(self.queda_id)
+                self.queda_id = None
             self.imagem_foguete.configure(image=self.img_I)
             self.button_integridade.configure(text="ÍNTEGRO", fg_color="green", hover_color="green")
             self.status_do_foguete.configure(text="Status: O foguete está no chão!")
@@ -474,6 +485,7 @@ class Aplicativo(ctk.CTk):
                 integridade = self.integridade.get()
             except:
                 self.texto_descricao.configure(text="Insira valores nos campos vazios.")
+                return
 
             # Verificação das informações inseridas pelo usuário
             if combustivel < 35000 or combustivel > 1000000:
