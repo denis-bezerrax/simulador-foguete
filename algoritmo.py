@@ -301,6 +301,7 @@ class Aplicativo(ctk.CTk):
                 self.button_energia_lateral.configure(fg_color="darkred", hover_color="darkred")
                 self.imagem_foguete.configure(self.imagem_foguete.configure(image=self.imge_I))
                 foguete_para()
+                return
             elif self.energia <= 20:
                 self.status_do_foguete.configure(text="Status: O foguete está com problemas")
                 self.texto_descricao.configure(text="O foguete está ficando sem energia")
@@ -317,6 +318,7 @@ class Aplicativo(ctk.CTk):
                 self.button_temperatura_interna_lateral.configure(fg_color="darkred", hover_color="darkred")
                 self.imagem_foguete.configure(image=self.imge_I)
                 foguete_para()
+                return
             elif self.t_interna >= 40:
                 self.status_do_foguete.configure(text="Status: O foguete está com problemas")
                 self.texto_descricao.configure(text="A temperatura interna está ficando alta.")
@@ -333,6 +335,7 @@ class Aplicativo(ctk.CTk):
                 self.button_temperatura_externa_lateral.configure(fg_color="darkred", hover_color="darkred")
                 self.imagem_foguete.configure(image=self.imge_I)
                 foguete_para()
+                return
             elif self.t_externa >= 1000:
                 self.status_do_foguete.configure(text="Status: O foguete está com problemas")
                 self.texto_descricao.configure(text="A temperatura externa está ficando muito alta.")
@@ -351,6 +354,7 @@ class Aplicativo(ctk.CTk):
                 self.button_pressao_dos_tanques_lateral.configure(fg_color="darkred", hover_color="darkred")
                 self.imagem_foguete.configure(image=self.imge_I)
                 foguete_para()
+                return
             elif self.pressao_tanques >= 30:
                 self.status_do_foguete.configure(text="Status: O foguete está com problemas")
                 self.texto_descricao.configure(text="A pressão dos tanques está crítica.")
