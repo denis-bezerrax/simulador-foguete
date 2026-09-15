@@ -233,7 +233,7 @@ class Aplicativo(ctk.CTk):
 
         self.subtitulo_pressao_dos_tanques_inicial = ctk.CTkLabel(self.tela_frame,
                                                                   text="Pressão dos tanques")
-        self.subtitulo_pressao_dos_tanques_inicial.grid(row=12,column=0, columnspan=2)
+        self.subtitulo_pressao_dos_tanques_inicial.grid(row=12,column=0, columnspan=2) 
         self.campo_pressao_dos_tanques_inicial = ctk.CTkEntry(self.tela_frame, 
                                                       validate="key",
                                                       validatecommand=(self.register(validacao), "%P"))
