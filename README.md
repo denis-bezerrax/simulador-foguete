@@ -4,10 +4,10 @@
 <p>
   O projeto Missão Aurora basicamente é um simulador de decolagem de foguete.
 </p>
-<img width="500" alt="capa" src="https://github.com/user-attachments/assets/cdb3f7cf-9675-4a8c-8249-f685a9777a2b" />
-<img width="500" alt="github 2" src="https://github.com/user-attachments/assets/55a83262-3b2b-4016-bfda-55648bd492f3" />
-<img width="500" alt="github 3" src="https://github.com/user-attachments/assets/2522f372-559c-4285-aa85-ad96c7d6828a" />
-<img width="500" alt="github 4" src="https://github.com/user-attachments/assets/da935833-42e5-4376-8593-69a97e66ae4c" />
+<img width="400" alt="capa" src="https://github.com/user-attachments/assets/cdb3f7cf-9675-4a8c-8249-f685a9777a2b" />
+<img width="400" alt="github 2" src="https://github.com/user-attachments/assets/55a83262-3b2b-4016-bfda-55648bd492f3" />
+<img width="400" alt="github 3" src="https://github.com/user-attachments/assets/2522f372-559c-4285-aa85-ad96c7d6828a" />
+<img width="400" alt="github 4" src="https://github.com/user-attachments/assets/da935833-42e5-4376-8593-69a97e66ae4c" />
 
 <p>
   O simulador coleta as informações inseridas inicialmente pelo usuário, verificando se estão aptas para uma decolagem segura, caso contrário, a decolagem é abortada. Durante a decolagem, as variáveis sofrem alterações constantemente, sendo atualizadas a cada segundo. As principais variáveis que estão presentes no projeto são:
