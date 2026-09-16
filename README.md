@@ -1,5 +1,5 @@
 <h1 align="center">Missão Aurora</h1>
-<h2>Sobre o projeto</h2>
+<h2>📑 Sobre o projeto</h2>
   
 <p>
   O projeto Missão Aurora basicamente é um simulador de decolagem de foguete.
@@ -18,15 +18,32 @@
   <li>Pressão dos tanques</li>
 </ul> 
 <p>
-A variavel integridade estrutural sofre alguma alteração quando algum módulo do foguete apresenta falha. A variável combustível sofre um decréscimo de 1129 quilogramas por segundo. A variável energia sofre um descréscimo de 0,5% por segundo. A variável temperatura interna sofre um aumento da velocidade do foguete multiplicado por 0,003 a cada segundo. A variável temperatura externa sofre um aumento da velocidade do foguete multiplicado por 0,1 a cada segundo. A variável pressão dos tanques sofre um aumento de 0,3 bar por segundo.
+A variavel integridade estrutural sofre alteração quando algum módulo do foguete apresenta alguma falha. A variável combustível sofre um decréscimo de 1129 quilogramas por segundo. A variável energia sofre um descréscimo de 0,5% por segundo. A variável temperatura interna sofre um aumento da velocidade do foguete multiplicado por 0,003 a cada segundo. A variável temperatura externa sofre um aumento da velocidade do foguete multiplicado por 0,1 a cada segundo. A variável pressão dos tanques sofre um aumento de 0,3 bar por segundo.
 </p>
 
-<h2>Instruções de uso</h2>
+<h2>🛠️ Funcionalidades</h2>
+<ul>
+  <li>🚀 Simulação de decolagem de foguete</li>
+  <li>📊 Monitoramento das variáveis durante a decolagem</li>
+  <li>⛽ Consumo de combustível em tempo real</li>
+  <li>⚡ Controle do nível de energia</li>
+  <li>🌡️ Monitoramento da temperatura interna e externa</li>
+  <li>💨 Monitoramento da pressão dos tanques</li>
+  <li>🛡️ Verificação da integridade estrutural</li>
+  <li>⚠️ Detecção de falhas nos módulos do foguete</li>
+  <li>💥 Simulação de explosão em situações críticas</li>
+  <li>📉 Simulação da queda do foguete em caso de falha</li>
+  <li>🌍 Simulação da chegada ao espaço</li>
+  <li>⏱️ Cronômetro durante a missão</li>
+  <li>🛑 Possibilidade de interromper a simulação</li>
+  <li>🔄 Reinicialização dos dados da missão</li>
+</ul>
+<h2>⚙️ Instruções de uso</h2>
 <p>
   Caso o usuário queira rodar o código no próprio IDE é possível, só sendo necessário clonar o arquivos do repositório e executar o algoritmo.py, todavia, recomendamos fortemente para simplificar o processo, <a href="https://github.com/denis-bezerrax/simulador-foguete/releases/tag/simulador-foguete-1.2">baixar o executável</a> e inicia-lo no seu sistema operacional. Após inicializar o programa, insira as informações nos campos exigidos e clique no botão "Iniciar", instantaneamente irá começar a simulação. Caso queira parar a simulação, basta apertar o botão "Parar" do programa. Qualquer problema que resultar durante a simulação será mostrada na parte "Descrição" do programa.
 </p>
 
-<h2>Autores</h2>
+<h2>👥 Autores</h2>
 
 <table>
   <tr>
