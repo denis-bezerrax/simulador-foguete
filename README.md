@@ -63,7 +63,7 @@ A variável integridade estrutural sofre alteração quando algum módulo do fog
     <td align="center">
       <a href="https://github.com/anapaula363">
         <img src="https://avatars.githubusercontent.com/u/265589133?v=4" width="115"><br>
-        <sub>Ana Silva</sub>
+        <sub>Ana  Silva</sub>
       </a>
     </td>
     <td align="center">
