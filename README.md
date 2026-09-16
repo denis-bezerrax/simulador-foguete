@@ -21,6 +21,9 @@ A variavel integridade estrutural sofre alguma alteração quando algum módulo 
 </p>
 
 <h2>Instruções de uso</h2>
+<p>
+  Caso o usuário queira rodar o código no próprio IDE é possível, só sendo necessário importar as bibliotecas necessárias para isso, todavia, recomendamos fortemente para simplificar o processo, baixar o executável e inicia-lo no seu sistema operacional. Após inicializar o programa, insira as informações nos campos exigidos e clique no botão "Iniciar", instantaneamente irá começar a simulação. Caso queira parar a simulação, basta apertar o botão "Parar" do programa. Qualquer problema que resultar durante a simulação será mostrada na parte "Descrição" do programa.
+</p>
 
 <h2>Autores</h2>
 
