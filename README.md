@@ -50,7 +50,7 @@ A variavel integridade estrutural sofre alteração quando algum módulo do fogu
 </ul>
 <h2>⚙️ Instruções de uso</h2>
 <p>
-  Caso o usuário queira rodar o código no próprio IDE é possível, só sendo necessário clonar o arquivos do repositório e executar o algoritmo.py, todavia, recomendamos fortemente para simplificar o processo, <a href="https://github.com/denis-bezerrax/simulador-foguete/releases/tag/simulador-foguete-1.2">baixar o executável</a> e inicia-lo no seu sistema operacional. Após inicializar o programa, insira as informações nos campos exigidos e clique no botão "Iniciar", instantaneamente irá começar a simulação. Caso queira parar a simulação, basta apertar o botão "Parar" do programa. Qualquer problema que resultar durante a simulação será mostrada na parte "Descrição" do programa.
+  Caso o usuário queira rodar o código no próprio IDE é possível, só sendo necessário clonar o arquivos do repositório e executar o algoritmo.py, todavia, recomendamos fortemente para simplificar o processo, <a href="https://github.com/denis-bezerrax/simulador-foguete/releases/tag/simulador-foguete-1.3">baixar o executável</a> e inicia-lo no seu sistema operacional. Após inicializar o programa, insira as informações nos campos exigidos e clique no botão "Iniciar", instantaneamente irá começar a simulação. Caso queira parar a simulação, basta apertar o botão "Parar" do programa. Qualquer problema que resultar durante a simulação será mostrada na parte "Descrição" do programa.
 </p>
 
 <h2>👥 Autores</h2>
