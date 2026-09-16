@@ -10,6 +10,7 @@
 <p/> 
 <ul>
   <li>Integridade estrutural</li>
+  <li>Módulos críticos</li>
   <li>Combustível</li>
   <li>Energia</li>
   <li>Temperatura interna</li>
