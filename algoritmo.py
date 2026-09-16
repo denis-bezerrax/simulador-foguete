@@ -84,7 +84,7 @@ class Aplicativo(ctk.CTk):
         self.altura = 0
         self.velocidade = 0
         self.mostrador_altura_e_velocidade = ctk.CTkLabel(self.barra_lateral,
-                                             text=(f"Altura: {self.altura} quilômetros | Velocidade {self.velocidade} Km/s"))
+                                             text=(f"Altitude: {self.altura} quilômetros | Velocidade {self.velocidade} Km/s"))
         self.mostrador_altura_e_velocidade.pack()
 
         # Integridade do foguete
@@ -398,7 +398,7 @@ class Aplicativo(ctk.CTk):
             
 
         def atualizar_mostradores():
-            self.mostrador_altura_e_velocidade.configure(text=f"Altura: {self.altura:.2f} quilômetros | Velocidade {self.velocidade:.2f}Km/s")
+            self.mostrador_altura_e_velocidade.configure(text=f"Altitude: {self.altura:.2f} quilômetros | Velocidade {self.velocidade:.2f}Km/s")
             self.button_combustivel_lateral.configure(text=f"{self.combustivel} quilos")
             self.button_energia_lateral.configure(text=f"{self.energia}%")
             self.button_temperatura_interna_lateral.configure(text=f"{self.t_interna:.1f}℃")
