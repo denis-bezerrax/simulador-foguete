@@ -53,7 +53,7 @@ A variável integridade estrutural sofre alteração quando algum módulo do fog
 </ul>
 <h2>⚙️ Instruções de uso</h2>
 <p>
-  Caso o usuário queira rodar o código no próprio IDE é possível, só sendo necessário clonar os arquivos do repositório e executar o arquivo algoritmo.py, todavia, recomendamos fortemente para simplificar o processo baixar o executável e inicia-lo no seu sistema operacional <a href="https://github.com/denis-bezerrax/simulador-foguete/releases/tag/simulador-foguete-1.4">(Download)</a>. Após inicializar o programa, insira as informações nos campos exigidos e clique no botão "Iniciar", instantaneamente irá começar a simulação. Caso queira parar a simulação, basta apertar o botão "Parar" do programa. Qualquer problema que resultar durante a simulação será mostrada na parte "Descrição" do programa.
+  Caso o usuário queira rodar o código no próprio IDE é possível, só sendo necessário clonar os arquivos do repositório e executar o arquivo algoritmo.py, todavia, recomendamos fortemente para simplificar o processo baixar o executável e inicia-lo no seu sistema operacional <a href="https://github.com/denis-bezerrax/simulador-foguete/releases/tag/simulador-foguete-1.4">(Download)</a>. Provavelmente o antivírus irá acusar que o arquivo é malicioso devido a falta da assinatura da Microsoft, entretanto, basta prosseguir e roda-lo que irá abrir o programa normamente. Após inicializar o programa, insira as informações nos campos exigidos e clique no botão "Iniciar", instantaneamente irá começar a simulação. Caso queira parar a simulação, basta apertar o botão "Parar" do programa. Qualquer problema que resultar durante a simulação será mostrada na parte "Descrição" do programa.
 </p>
 
 <h2>👥 Autores</h2>
@@ -63,7 +63,7 @@ A variável integridade estrutural sofre alteração quando algum módulo do fog
     <td align="center">
       <a href="https://github.com/anapaula363">
         <img src="https://avatars.githubusercontent.com/u/265589133?v=4" width="115"><br>
-        <sub>Ana  Silva</sub>
+        <sub>Ana Silva</sub>
       </a>
     </td>
     <td align="center">
