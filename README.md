@@ -6,7 +6,7 @@
 </p>
 <img width="1436" height="881" alt="capa" src="https://github.com/user-attachments/assets/cdb3f7cf-9675-4a8c-8249-f685a9777a2b" />
 <p>
-  O simulador coleta as informações inseridas inicialmente pelo usuário, verificando se estão aptas para uma decolagem segura, caso contrário a decolagem é abortada. Durante a decolagem, as variáveis sofrem alterações constantemente, sendo atualizadas a cada segundo. As variáveis que estão presentes no projeto são:
+  O simulador coleta as informações inseridas inicialmente pelo usuário, verificando se estão aptas para uma decolagem segura, caso contrário, a decolagem é abortada. Durante a decolagem, as variáveis sofrem alterações constantemente, sendo atualizadas a cada segundo. As principais variáveis que estão presentes no projeto são:
 <p/> 
 <ul>
   <li>Integridade estrutural</li>
