@@ -1,4 +1,4 @@
-<h1 align="center">Missão Aurora</h1>
+<h1 align="center">Missão Aurora - Decolagem de foguete</h1>
 <h2>📑 Sobre o projeto</h2>
   
 <p>
